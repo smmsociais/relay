@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan("combined"));
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const RELAY_TOKEN = process.env.RELAY_TOKEN || "4769";
 const ASAAS_API_KEY = process.env.ASAAS_API_KEY || "";
 const ASAAS_API_URL = process.env.ASAAS_API_URL || "https://api.asaas.com/v3/transfers"; // ajuste conforme docs
@@ -154,4 +154,5 @@ app.post("/relay/withdraw", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`[RELAY] rodando na porta ${PORT} - PID: ${process.pid}`);
 });
+
 

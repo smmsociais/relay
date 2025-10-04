@@ -15,7 +15,7 @@ app.use(morgan("combined"));
 const PORT = process.env.PORT || 8080;
 const RELAY_TOKEN = process.env.RELAY_TOKEN || "4769";
 const ASAAS_API_KEY = process.env.ASAAS_API_KEY || "";
-const ASAAS_API_URL = process.env.ASAAS_API_URL || "https://api.asaas.com/v1/transfers"; // ajuste conforme docs
+const ASAAS_API_URL = process.env.ASAAS_API_URL || "https://api.asaas.com/v3/transfers"; // ajuste conforme docs
 const IDEMPOTENCY_FILE = process.env.IDEMPOTENCY_FILE || "./processed_references.json";
 
 async function fetchWithTimeout(url, opts = {}, ms = 7000) {
@@ -154,3 +154,4 @@ app.post("/relay/withdraw", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`[RELAY] rodando na porta ${PORT} - PID: ${process.pid}`);
 });
+
